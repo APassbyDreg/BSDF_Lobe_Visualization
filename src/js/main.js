@@ -23,7 +23,8 @@ let appconf = {
             custom_vals: ["N/A", "N/A", 270, 45],
             chart_3d: null,
             chart_2d: null,
-            exist_error: false
+            exist_error: false,
+            err_msg: ""
         }
     },
     methods: {
@@ -42,13 +43,20 @@ let appconf = {
             let theta = parseFloat(this.custom_vals[3]) / 180 * Math.PI;
             const r = 3;
             eval_fmt_base = this.bsdf_eval_str;
-            opt_3d.series[2].data[0] = [
+            opt_3d.series[2].data[0].value = [
                 r * Math.sin(theta) * Math.sin(phi),
                 r * Math.sin(theta) * Math.cos(phi),
                 r * Math.cos(theta),
             ];
-            console.log(phi, theta);
-            this.chart_3d.setOption(opt_3d);
+
+            try {
+                eval(utils.format("function") + eval_fmt_base.format(0, 0));
+                this.exist_error = false;
+                this.chart_3d.setOption(opt_3d);
+            } catch (error) {
+                this.exist_error = true;
+                this.err_msg = error;
+            }
         },
     },
     computed: {
@@ -96,3 +104,4 @@ let app = Vue.createApp(appconf)
     .component("v-chart", VueECharts)
     .component("v-slider", window['vue-slider-component'])
     .mount("#app");
+

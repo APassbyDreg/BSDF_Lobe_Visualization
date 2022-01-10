@@ -46,6 +46,6 @@ body {
 
 #code-body {
     width: 100%;
-    font-size: larger;
+    font-size: large;
     transition: all ease 0.5s;
 }
