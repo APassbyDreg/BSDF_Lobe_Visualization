@@ -1,0 +1,51 @@
+body {
+    background-color: #ecf8ff;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 8vh;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 0 20px #999;
+    padding: 20px;
+    transition: all ease 0.5s;
+}
+
+#editor {
+    width: 40%;
+    height: 100%;
+    float: right;
+}
+
+#visualizer {
+    width: 60%;
+    height: 100%;
+    float: left;
+    background-color: #f0f0f0;
+}
+
+#chart-3d {
+    width: 100%;
+    height: 100%;
+}
+
+#chart-2d {
+    width: 100%;
+    height: 100%;
+}
+
+#params {
+    width: 100%;
+    transition: all ease 0.5s;
+}
+
+#code-body {
+    width: 100%;
+    font-size: larger;
+    transition: all ease 0.5s;
+}

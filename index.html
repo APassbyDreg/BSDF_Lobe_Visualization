@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSDF Lobe Vis</title>
+
+    <!-- 
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon"> -->
+
+    <link rel="stylesheet" href="./libs/Bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./libs/MDB5/css/mdb.min.css">
+    <link rel="stylesheet" href="./libs/vue-slider-component/theme/default.css">
+    <link rel="stylesheet" href="./libs/prism/prism.css">
+
+    <link rel="stylesheet" href="./src/css/styles.css">
+</head>
+
+<body>
+    <div id="app">
+        <div id="visualizer">
+            <div v-show="show_2d" id="chart-2d">
+            </div>
+            <div v-show="!show_2d" id="chart-3d">
+            </div>
+        </div>
+        <div id="editor" class="d-flex flex-column">
+            <div id="params">
+                <table class="w-100 table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Parameter Name</th>
+                            <th scope="col">Value</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="i in custom_vars.length">
+                            <td>
+                                <input type="text" class="form-control form-control-sm" v-model="custom_vars[i-1]"
+                                    :disabled="i<=4" />
+                            </td>
+                            <td>
+                                <input type="text" class="form-control form-control-sm" v-model="custom_vals[i-1]"
+                                    :disabled="i<=2" />
+                            </td>
+                            <td>
+                                <div class="badge rounded-pill" :class="i>4 ? 'bg-danger' : 'bg-white'"
+                                    @click="delete_param(i-1)">delete
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-sm btn-primary w-100 m-0" @click="add_param">ADD PARAM</button>
+            </div>
+            <div id="code-body" class="flex-fill">return 1;</div>
+            <div id="code-info" class="note note-danger" v-if="exist_error">error info is here</div>
+            <button class="btn btn-sm btn-primary w-100 m-0" @click="update_vis">Update Preview</button>
+        </div>
+    </div>
+
+    <script src="./libs/Vue/vue.global.prod.js"></script>
+    <script src="./libs/echarts/echarts.js"></script>
+    <script src="./libs/echarts/echarts-gl.min.js"></script>
+    <script src="./libs/vue-echarts.js"></script>
+    <script src="./libs/vue-slider-component/vue-slider-component.umd.js"></script>
+    <script src="./libs/MDB5/js/mdb.min.js"></script>
+    <script src="./libs/Bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="./libs/jQuery/jquery.js"></script>
+    <script src="./libs/jquery.csv.js"></script>
+    <script src="./libs/prism/prism.js"></script>
+    <script src="./libs/ace/src-min-noconflict/ace.js"></script>
+
+    <script src="./src/js/base_options.js"></script>
+    <script src="./src/js/calculation.js"></script>
+    <script src="./src/js/main.js"></script>
+</body>
+
+</html>
