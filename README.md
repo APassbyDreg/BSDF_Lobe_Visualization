@@ -10,7 +10,7 @@ You can add custom parameters and specify how the BSDF is generated using JavaSc
 
 ## Libs Used
 
-- ECharts
+- ECharts / Echarts GL
 - Vue
 - Material Design Bootstrapt
 - ace
@@ -19,5 +19,6 @@ You can add custom parameters and specify how the BSDF is generated using JavaSc
 
 - [ ] add built-in util functions
 - [ ] add few examples
-- [ ] improve appearance
 - [ ] dynamic coordinate system
+- [ ] better tooltips
+- [ ] improve appearance
