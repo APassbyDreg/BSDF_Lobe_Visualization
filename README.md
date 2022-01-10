@@ -6,6 +6,8 @@ You can add custom parameters and specify how the BSDF is generated using JavaSc
 
 ## Demo Site:
 
+![demo](assets/demo.png)
+
 [https://apassbydreg.github.io/BSDF_Lobe_Visualization/](https://apassbydreg.github.io/BSDF_Lobe_Visualization/)
 
 ## Libs Used
@@ -19,6 +21,5 @@ You can add custom parameters and specify how the BSDF is generated using JavaSc
 
 - [ ] add built-in util functions
 - [ ] add few examples
-- [ ] dynamic coordinate system
 - [ ] better tooltips
 - [ ] improve appearance

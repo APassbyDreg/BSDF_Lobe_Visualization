@@ -16,6 +16,9 @@
 </head>
 
 <body>
+    <div id="title">
+        BSDF Lobe Visualizer
+    </div>
     <div id="app">
         <div id="visualizer">
             <div v-show="show_2d" id="chart-2d">
@@ -55,23 +58,25 @@
             <button class="btn btn-sm btn-primary w-100 m-0" @click="add_param" style="margin: -20px;">ADD
                 PARAM</button>
             <div class="seperator"></div>
-            <div id="code-body" class="flex-fill">return 1;</div>
-            <div class="seperator"></div>
-            <div id="code-info" class="note note-danger" v-if="exist_error">{{err_msg}}</div>
-            <button class="btn btn-sm btn-primary w-100 m-0" @click="update_vis">Update Preview</button>
+            <div class="flex-fill overflow-scroll">
+                <div id="code-body">return theta_o < Math.PI / 2 ? 1 / Math.PI : 0;</div>
+                </div>
+                <div class="seperator"></div>
+                <div id="code-info" class="note note-danger" v-if="exist_error">{{err_msg}}</div>
+                <button class="btn btn-sm btn-primary w-100 m-0" @click="update_vis">Update Preview</button>
+            </div>
         </div>
-    </div>
 
-    <script src="./libs/vue/vue.global.prod.js"></script>
-    <script src="./libs/echarts/echarts.js"></script>
-    <script src="./libs/echarts/echarts-gl.min.js"></script>
-    <script src="./libs/MDB5/js/mdb.min.js"></script>
-    <script src="./libs/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="./libs/ace/src-min-noconflict/ace.js"></script>
+        <script src="./libs/vue/vue.global.prod.js"></script>
+        <script src="./libs/echarts/echarts.js"></script>
+        <script src="./libs/echarts/echarts-gl.min.js"></script>
+        <script src="./libs/MDB5/js/mdb.min.js"></script>
+        <script src="./libs/bootstrap/js/bootstrap.bundle.js"></script>
+        <script src="./libs/ace/src-min-noconflict/ace.js"></script>
 
-    <script src="./src/js/calculation.js"></script>
-    <script src="./src/js/options.js"></script>
-    <script src="./src/js/main.js"></script>
+        <script src="./src/js/calculation.js"></script>
+        <script src="./src/js/options.js"></script>
+        <script src="./src/js/main.js"></script>
 </body>
 
 </html>

@@ -39,9 +39,10 @@ let appconf = {
             }
         },
         update_vis: function () {
+            this.bsdf_func_str = this.editor.getValue();
             let phi = parseFloat(this.custom_vals[2]) / 180 * Math.PI;
             let theta = parseFloat(this.custom_vals[3]) / 180 * Math.PI;
-            const r = 3;
+            const r = 100;
             eval_fmt_base = this.bsdf_eval_str;
             opt_3d.series[2].data[0].value = [
                 r * Math.sin(theta) * Math.sin(phi),
@@ -52,7 +53,23 @@ let appconf = {
             try {
                 eval(utils.format("function") + eval_fmt_base.format(0, 0));
                 this.exist_error = false;
+                rmax = 0;
+                this.chart_3d.showLoading();
                 this.chart_3d.setOption(opt_3d);
+                opt_3d.xAxis3D.min = -rmax * 1.5;
+                opt_3d.xAxis3D.max = rmax * 1.5;
+                opt_3d.yAxis3D.min = -rmax * 1.5;
+                opt_3d.yAxis3D.max = rmax * 1.5;
+                opt_3d.zAxis3D.min = -rmax * 1.5;
+                opt_3d.zAxis3D.max = rmax * 1.5;
+                opt_3d.series[1].equation.x.step = 3 * rmax;
+                opt_3d.series[1].equation.x.min = -1.5 * rmax;
+                opt_3d.series[1].equation.x.max = 1.5 * rmax;
+                opt_3d.series[1].equation.y.step = 3 * rmax;
+                opt_3d.series[1].equation.y.min = -1.5 * rmax;
+                opt_3d.series[1].equation.y.max = 1.5 * rmax;
+                this.chart_3d.setOption(opt_3d);
+                this.chart_3d.hideLoading();
             } catch (error) {
                 this.exist_error = true;
                 this.err_msg = error;
@@ -90,10 +107,6 @@ let appconf = {
         this.editor = ace.edit("code-body");
         this.editor.setTheme("ace/theme/xcode");
         this.editor.session.setMode("ace/mode/javascript");
-        this.editor.setValue("return 1;", 0);
-        this.editor.on("change", () => {
-            this.bsdf_func_str = this.editor.getValue();
-        });
 
         this.update_vis();
     }

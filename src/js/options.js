@@ -1,7 +1,10 @@
 let eval_fmt_base = "1";
+let rmax = 0.5 / Math.PI;
 
 function calc_x(u, v) {
-    return eval(utils.format("function") + eval_fmt_base.format(u, v)) * Math.sin(v) * Math.sin(u);
+    let r = eval(utils.format("function") + eval_fmt_base.format(u, v));
+    rmax = Math.max(r, rmax);
+    return r * Math.sin(v) * Math.sin(u);
 }
 
 function calc_y(u, v) {
@@ -28,27 +31,27 @@ let base_opt_3d = {
         }
     },
     xAxis3D: {
-        min: -2,
-        max: 2
+        min: -1.5 * rmax,
+        max: 1.5 * rmax
     },
     yAxis3D: {
-        min: -2,
-        max: 2
+        min: -1.5 * rmax,
+        max: 1.5 * rmax
     },
     zAxis3D: {
-        min: -2,
-        max: 2
+        min: -1.5 * rmax,
+        max: 1.5 * rmax
     },
     grid3D: {},
     series: [
         {
             type: 'surface',
             parametric: true,
-            shading: 'color',
+            shading: 'lambert',
             wireframe: {
                 show: false
             },
-            colorMaterial: {
+            lambertMaterial: {
                 detailTexture: "./assets/red-color.png",
                 textureTiling: 1
             },
