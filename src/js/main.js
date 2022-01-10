@@ -100,8 +100,5 @@ let appconf = {
 }
 
 
-let app = Vue.createApp(appconf)
-    .component("v-chart", VueECharts)
-    .component("v-slider", window['vue-slider-component'])
-    .mount("#app");
+let app = Vue.createApp(appconf).mount("#app");
 

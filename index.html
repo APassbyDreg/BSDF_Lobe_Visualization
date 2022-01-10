@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="./libs/Bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="./libs/MDB5/css/mdb.min.css">
     <link rel="stylesheet" href="./libs/vue-slider-component/theme/default.css">
-    <link rel="stylesheet" href="./libs/prism/prism.css">
 
     <link rel="stylesheet" href="./src/css/styles.css">
 </head>
@@ -28,7 +27,7 @@
         </div>
         <div id="editor" class="d-flex flex-column">
             <div id="params" style="max-height: 40%; overflow: scroll;">
-                <table class="w-100 table table-sm">
+                <table class="w-100 table table-sm m-0">
                     <thead>
                         <tr>
                             <th scope="col">Parameter Name</th>
@@ -57,7 +56,9 @@
             </div>
             <button class="btn btn-sm btn-primary w-100 m-0" @click="add_param" style="margin: -20px;">ADD
                 PARAM</button>
+            <div class="seperator"></div>
             <div id="code-body" class="flex-fill">return 1;</div>
+            <div class="seperator"></div>
             <div id="code-info" class="note note-danger" v-if="exist_error">{{err_msg}}</div>
             <button class="btn btn-sm btn-primary w-100 m-0" @click="update_vis">Update Preview</button>
         </div>
@@ -66,11 +67,8 @@
     <script src="./libs/Vue/vue.global.prod.js"></script>
     <script src="./libs/echarts/echarts.js"></script>
     <script src="./libs/echarts/echarts-gl.min.js"></script>
-    <script src="./libs/vue-echarts.js"></script>
-    <script src="./libs/vue-slider-component/vue-slider-component.umd.js"></script>
     <script src="./libs/MDB5/js/mdb.min.js"></script>
     <script src="./libs/Bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="./libs/prism/prism.js"></script>
     <script src="./libs/ace/src-min-noconflict/ace.js"></script>
 
     <script src="./src/js/calculation.js"></script>
