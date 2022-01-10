@@ -49,7 +49,7 @@ let base_opt_3d = {
                 show: false
             },
             colorMaterial: {
-                detailTexture: "/assets/red-color.png",
+                detailTexture: "./assets/red-color.png",
                 textureTiling: 1
             },
             parametricEquation: {
@@ -90,7 +90,7 @@ let base_opt_3d = {
                 }
             },
             lambertMaterial: {
-                detailTexture: "/assets/blue-color.png",
+                detailTexture: "./assets/blue-color.png",
                 textureTiling: 1
             },
             silent: true
